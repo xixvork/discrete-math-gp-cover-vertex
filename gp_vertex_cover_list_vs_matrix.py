@@ -39,20 +39,14 @@ class Graph:
                     edges.append((u, v))
         
         random.shuffle(edges)
-        maximal_matching = set()
         covered_vertices = set()
 
         for u, v in edges:
             if u not in covered_vertices and v not in covered_vertices:
-                maximal_matching.add((u, v))
                 covered_vertices.add(u)
                 covered_vertices.add(v)
         
-        new_vertex_cover = set()
-        for u, v in maximal_matching:
-            new_vertex_cover.add(u)
-            new_vertex_cover.add(v)
-        self.vertex_cover = new_vertex_cover
+        self.vertex_cover = covered_vertices
 
     def generate_vertex_cover_from_matrix(self):
         edges = []
@@ -62,20 +56,15 @@ class Graph:
                     edges.append((i, j))
         
         random.shuffle(edges)
-        maximal_matching = set()
         covered_vertices = set()
 
         for u, v in edges:
             if u not in covered_vertices and v not in covered_vertices:
-                maximal_matching.add((u, v))
                 covered_vertices.add(u)
                 covered_vertices.add(v)
         
-        new_vertex_cover = set()
-        for u, v in maximal_matching:
-            new_vertex_cover.add(u)
-            new_vertex_cover.add(v)
-        self.vertex_cover = new_vertex_cover
+        self.vertex_cover = covered_vertices
+
 
 def make_experiment(n_vertices, density, repeats, method='matrix') -> list[float]:
     res = [] 
