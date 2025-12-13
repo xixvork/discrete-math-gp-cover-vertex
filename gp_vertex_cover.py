@@ -21,8 +21,6 @@ class Graph:
         self.vertex_cover = set()
         
     def _generate(self):
-        self.adj_list = [[] for _ in range(self.n)]
-        self.adj_matrix = [[0] * self.n for _ in range(self.n)]
         for i in range(self.n):
             for j in range(i + 1, self.n):
                 if random.random() < self.delta:
